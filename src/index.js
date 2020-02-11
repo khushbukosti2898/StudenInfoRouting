@@ -6,16 +6,13 @@ import * as serviceWorker from './serviceWorker';
 import Info from './info'
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import NoMatch from './NoMatch'
 const routing=(
     <BrowserRouter>
     <Switch>
-    <Route path='/student/:id' component={Info}>
-    </Route>
-    <Route path='/student'>
-        <StudentList />
-    </Route>
-    
+        <Route path='/student/:id' component={Info} />
+        <Route exact path='/student' component={StudentList} />
+        <Route component={NoMatch}/>
     </Switch>
     </BrowserRouter>
 )

@@ -5,12 +5,12 @@ import {Link} from 'react-router-dom'
 class Marks extends React.Component{
     render(){
         const {params}=this.props.match;        
-        const data=students.filter(student=> student.id == params.id )
+        let data=students.find(student=> student.id == params.id )
         return(<div>
-            <h5>Maths-{data[0].maths}</h5>
-            <h5>Science-{data[0].science}</h5>
-            <h5>History{data[0].history}</h5>
-            <h5>English-{data[0].english}</h5>
+            <h5>Maths-{data.maths}</h5>
+            <h5>Science-{data.science}</h5>
+            <h5>History{data.history}</h5>
+            <h5>English-{data.english}</h5>
          </div>)
     }
 }

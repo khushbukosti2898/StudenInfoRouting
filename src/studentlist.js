@@ -3,6 +3,8 @@ import {Table} from 'react-bootstrap';
 import data from './student_data.json';
 import {Link} from 'react-router-dom' 
 import './App.css';
+import NoMatch from './NoMatch'
+
 
  class StudentList extends React.Component{
      state={
@@ -36,7 +38,8 @@ import './App.css';
                                     <Link to={`/student/${student.id}`}>
                                         <input type="button" 
                                             value="Detail">
-                                    </input></Link>
+                                        </input>
+                                    </Link>
                                 </td>
                             </tr>
                         }
