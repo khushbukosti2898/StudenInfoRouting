@@ -1,16 +1,15 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
 import students from './student_data.json';
-import { BrowserRouter, Switch, Route, Link} from 'react-router-dom';
+import {  Switch, Route, Link} from 'react-router-dom';
 import Detail from './detail';
 import Marks from './marks'
-import NoMatch from './NoMatch'
 
 
 class Info extends React.Component{
-
     render(){
-        const {params}=this.props.match;        
+        const {params,path}=this.props.match;  
+        console.log(this.props.match)
         let data=students.find(student=> student.id == params.id )
         return(<div>
                 <h5>Id- {data.id}</h5>
@@ -23,9 +22,8 @@ class Info extends React.Component{
                     <Button variant="dark">Marks</Button>
                 </Link>
                 <Switch>
-                    <Route path={`/student/:id/info`} component={Detail} /> 
-                    <Route path={`/student/:id/marks`} component={Marks} /> 
-                    
+                    <Route path={`${path}/info`} component={Detail} /> 
+                    <Route path={`${path}/marks`} component={Marks} /> 
                </Switch>
             </div>
         )
